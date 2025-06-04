@@ -1,0 +1,327 @@
+body {
+  font-family: "orbitron", sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh;;
+}
+
+.game-container {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: visible;
+}
+
+.game-title {
+  position: relative;
+  font-family: "press start 2p", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e63946;
+  text-shadow: 3px 3px #000000;
+  display: inline-block;
+  white-space: nowrap;
+  animation: bounce 1.5s ease-out infinite;
+  z-index: 10;
+}
+.worddisplay {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  animation: fadeInWord 1s ease-in-out;
+  margin-bottom: 1.5rem;
+}
+
+.game-card {
+  padding: 1.5rem;
+  background-color: #fdbe02;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.game-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.guessinput {
+  font-size: 1.2rem;
+  outline: none;
+  padding: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 120px;
+  transition: border-color 0.2s ease-in-out;
+  margin-bottom: 1.5rem;
+}
+
+.guess-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.play-button {
+  display: block;
+  width: 40%;
+  background-color: #3b82f6;
+  color: black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Roboto',sans-serif;
+  cursor: pointer;
+  border-radius: 6px;
+ transform: scale(0.98);
+}
+
+.play-button:hover {
+  background-color: #2563eb;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.gamecontent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.game-left {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.game-right {
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  max-width: 300px;
+  min-height: 300px;
+}
+.wrongletters{
+  color: red;
+  font-size: 20px;
+}
+.hangman {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hangman-step {
+  position: absolute;
+  height: auto;
+  max-width: 100%;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.hangman-step.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hangman-step.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Specific positioning for each part of the hangman */
+.hangman-step.rope {
+  top: -40px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: auto;
+}
+
+.hangman-step.head {
+  top: 80px;
+  left: 60%;
+  width: 80px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.hangman-step.eyes {
+  position: absolute;
+  top: 130px;
+  left: 60%;
+  width: 50px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.hangman-step.eyes img {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+.hangman-step.body {
+  top: 165px;
+  left: 60%;
+  width: 90px;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.hangman-step.left-arm {
+  top: 170px;
+  left: 45%;
+  width: 75px;
+  transform: translateX(-60%);
+}
+
+.hangman-step.right-arm {
+  top: 160px;
+  left: 75%;
+  width: 75px;
+  transform: translateX(-40%);
+}
+
+.hangman-step.left-leg {
+  top: 240px;
+  left: 45%;
+  width: 45px;
+  transform: translateX(-20%);
+}
+
+.hangman-step.right-leg {
+  top: 240px;
+  left: 75%;
+  width: 55px;
+  transform: translateX(-50%);
+  
+}
+.swing-animation {
+  animation: swing 6s linear infinite;
+  transform-origin: top center;
+}
+@keyframes swing {
+  0% {
+    transform: rotate(0deg); 
+  }
+  25% {
+    transform: rotate(15deg); 
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg); 
+  }
+  100% {
+    transform: rotate(0deg); 
+  }
+}
+.logout-container {
+  margin-top: 2.5rem;
+  text-align: center; 
+}
+
+.logout-button {
+  padding: 1rem;
+  background-color: #e74c3c;
+  color: black;
+  font-family: 'roboto',sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+@media (max-width: 768px) {
+  body{
+    font-size: 14px;
+    padding: 10px;
+    
+  }
+  .game-title {
+    font-size: 2rem;
+    position: relative;
+    margin-top:0px;
+  }
+
+  .gamecontent {
+    flex-direction: column;
+    align-items: center;
+    font-size:10px
+    
+  }
+  .worddisplay{
+    font-size: 12px;
+  }
+  .game-left{
+    width: 100%;
+    padding: 4px 0;
+    text-align: center;
+    order:1;
+  
+  }
+  .game-right{
+    width: 100%;
+    position: relative;
+    max-width: 300px;
+    min-height: 280px;
+    height: 280px;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+    order:2;
+  }
+  .hangman-step{
+    width: 30vw;
+    max-width: 120px;
+    height: auto;
+  }
+  .hangman-step img{
+    max-width: 100%;
+    height: auto;
+  }
+  .hangman-step.left-leg {
+    top: 220px;
+  }
+
+  .hangman-step.right-leg {
+    top: 220px; 
+  }
+  .logout-container {
+  margin-top: 1rem;
+  }
+}

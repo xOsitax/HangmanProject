@@ -1,0 +1,58 @@
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 20px;
+    align-items: center;
+  }
+  
+  .keyboard-row {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .key {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+  }
+  .key:hover{
+    color: gray;
+  }
+  .key:active {
+    transform: scale(0.75);
+    background-color: #dcdcdc;
+  }
+  @media (max-width: 768px) {
+  .key {
+    padding: 6px;
+    min-width: 24px;
+    font-size: 14px;
+    }
+
+  .keyboard-row {
+    gap: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .key {
+    padding: 4px;
+    font-size: 12px;
+    min-width: 24px;
+  }
+
+  .virtual-keyboard {
+    padding-top: 10px;
+  }
+
+  .keyboard-row {
+    gap: 2px;
+  }
+}
