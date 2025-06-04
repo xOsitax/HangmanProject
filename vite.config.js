@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-const repoName = "Hangman-Project";
+const repoName = "HangmanProject";
 export default defineConfig({
-  base: "/Hangman-Project/",
+  base: "/HangmanProject/",
   plugins: [react()],
 });
